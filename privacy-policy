@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — BuySahi</title>
+  <meta name="description" content="Privacy policy for BuySahi - what data we collect and how we use it." />
+  <style>
+    :root{--bg:#0b0b0b;--card:rgba(255,255,255,0.04);--muted:rgba(255,255,255,0.7);--accent:#fff}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Poppins,system-ui,Arial,sans-serif}
+    body{background:var(--bg);color:#fff;padding:24px}
+    .wrap{max-width:920px;margin:28px auto;padding:26px;background:var(--card);border-radius:12px;border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px)}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+    header img{height:38px}
+    h1{font-size:1.5rem;margin-bottom:6px}
+    h2{margin-top:18px;margin-bottom:8px;font-size:1.05rem}
+    p{color:var(--muted);margin-bottom:10px}
+    ul{margin-left:18px;margin-bottom:10px}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:0.9rem;padding-top:12px;border-top:1px solid rgba(255,255,255,0.03)}
+    a{color:var(--accent);text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html" aria-label="BuySahi Home">
+        <img src="https://github.com/buysahi/buysahi.github.io/raw/main/Black_and_White_Modern_Streetwear_Sport_Logo__1_-removebg-preview-2.png" alt="BuySahi logo">
+      </a>
+    </header>
+
+    <h1>Privacy Policy</h1>
+    <p class="small">Last updated: November 30, 2025</p>
+
+    <p>BuySahi takes your privacy seriously. This policy explains what information we collect, how we use it, and what choices you have.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>BuySahi does not collect personally-identifiable information such as your name, email (unless you contact us), or address by default. The types of data collected automatically are:</p>
+    <ul>
+      <li><strong>Device information:</strong> browser type, device type, operating system.</li>
+      <li><strong>Analytics:</strong> anonymized traffic and usage data (page views, clicks).</li>
+      <li><strong>Affiliate click data:</strong> click-through events are tracked to credit affiliate purchases.</li>
+    </ul>
+
+    <h2>2. Cookies</h2>
+    <p>We use cookies and similar technologies for analytics, to improve the user experience, and to track affiliate clicks. You can disable cookies in your browser, but some functionality may be affected.</p>
+
+    <h2>3. Third-Party Links</h2>
+    <p>BuySahi contains links to third-party sites such as Amazon. Once you leave BuySahi, their privacy policies apply. We encourage you to review their policies.</p>
+
+    <h2>4. Google Analytics</h2>
+    <p>We may use Google Analytics or similar services to understand how visitors use the site. These services collect certain information such as IP addresses, device and browser data, and usage patterns in an aggregated or anonymized form.</p>
+
+    <h2>5. Data Security</h2>
+    <p>Since BuySahi does not store personal user data, the risk is limited. We use standard security practices (HTTPS, minimal storage) to protect the site.</p>
+
+    <h2>6. Children</h2>
+    <p>BuySahi is not intended for children under 13, and we do not knowingly collect data from children under 13.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Changing the policy will be posted here with a new "last updated" date.</p>
+
+    <h2>8. Contact</h2>
+    <p>If you have questions about our privacy practices contact us at <a href="mailto:support@buysahi.in">support@buysahi.in</a>.</p>
+
+    <footer>
+      <p>As an Amazon Associate, I earn from qualifying purchases.</p>
+      <p>&copy; BuySahi — <span id="year3"></span></p>
+    </footer>
+  </div>
+
+  <script>document.getElementById('year3').innerText = new Date().getFullYear();</script>
+</body>
+</html>
