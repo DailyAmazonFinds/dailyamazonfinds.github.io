@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuySahi – Trending Amazon Finds for Indian Homes</title>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Home CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://v1.pinimg.com/videos/iht/expMp4/b8/ce/bd/b8cebd36cc32a9897a2306d2e8e2ed1d_720w.mp4" type="video/mp4">
+  </video>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/">
+      <img src="https://github.com/buysahi/buysahi.github.io/raw/main/Black_and_White_Modern_Streetwear_Sport_Logo__1_-removebg-preview-2.png" class="logo" alt="BuySahi Logo">
+    </a>
+
+    
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Search by name or code…" oninput="showSuggestions()">
+    <div id="suggestionsBox"></div>
+  </div>
+<div style="text-align:center; margin-top:10px;">
+  <a href="/all.html"
+     style="display:inline-block;padding:10px 20px;border-radius:30px;
+            background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);
+            color:#fff;text-decoration:none;font-weight:600;">
+    Browse All Products →
+  </a>
+</div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Discover Trending Amazon Finds</h1>
+    <p class="sub">Daily curated problem-solvers, organisers, gadgets & kitchen bestsellers.</p>
+  </section>
+
+  <!-- CHIPS -->
+  <div class="chip-row">
+    <div class="chip" onclick="scrollToSection('trendingSec')">🔥 Trending</div>
+    <div class="chip" onclick="scrollToSection('problemSec')">🧩 Problem Solving</div>
+    <div class="chip" onclick="scrollToSection('organiserSec')">🏠 Home Organisers</div>
+    <div class="chip" onclick="scrollToSection('instaSec')">📸 Insta Trends</div>
+    <div class="chip" onclick="scrollToSection('kitchenSec')">🍳 Kitchen Bestsellers</div>
+  </div>
+
+  <!-- CAROUSELS -->
+  <section id="dynamicCarousels">
+
+    <!-- Trending -->
+    <div class="carousel-section" id="trendingSec">
+      <h2>🔥 Trending</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="trendingWrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Problem Solving -->
+    <div class="carousel-section" id="problemSec">
+      <h2>🧩 Problem-Solving Picks</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="problemWrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Home Organisers -->
+    <div class="carousel-section" id="organiserSec">
+      <h2>🏠 Home Organisers</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="organiserWrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Insta Trends -->
+    <div class="carousel-section" id="instaSec">
+      <h2>📸 Trending On Instagram</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="instaWrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Kitchen -->
+    <div class="carousel-section" id="kitchenSec">
+      <h2>🍳 Kitchen Bestsellers</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="kitchenWrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Disclosure -->
+  <p class="disclosure">As an Amazon Associate, we earn from qualifying purchases.</p>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div style="padding-bottom:18px;">
+      <img src="https://github.com/buysahi/buysahi.github.io/raw/main/Black_and_White_Modern_Streetwear_Sport_Logo__1_-removebg-preview-2.png" alt="BuySahi" style="height:40px;margin-bottom:10px;">
+      <p style="opacity:0.7;font-size:0.9rem;">Curated Amazon finds daily.</p>
+    </div>
+
+    <p style="margin-bottom:10px;">
+      <a href="/" style="color:#fff;text-decoration:none;margin:0 10px;">Home</a>
+      <a href="/blog/" style="color:#fff;text-decoration:none;margin:0 10px;">Blog</a>
+      <a href="/categories/" style="color:#fff;text-decoration:none;margin:0 10px;">Categories</a>
+      <a href="/privacy.html" style="color:#fff;text-decoration:none;margin:0 10px;">Privacy</a>
+      <a href="/terms.html" style="color:#fff;text-decoration:none;margin:0 10px;">Terms</a>
+      <a href="/about.html" style="color:#fff;text-decoration:none;margin:0 10px;">about</a>
+    </p>
+
+    <p class="footer-copy">
+      © <span id="year"></span> BuySahi · Powered by Amazon Associates
+    </p>
+  </footer>
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

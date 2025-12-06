@@ -1,0 +1,305 @@
+:root{
+  --bg:#0b0b0b;
+  --glass:rgba(255,255,255,0.06);
+  --accent:#fff;
+  --muted:rgba(255,255,255,0.85);
+}
+
+/* Base reset */
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",Inter,system-ui,Arial,sans-serif}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.4;
+}
+
+/* Background video */
+#bgVideo{
+  position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-20;opacity:0.45;filter:brightness(0.45) saturate(1.05);
+}
+
+/* Header */
+.site-header{
+  position:fixed;top:0;left:0;width:100%;padding:10px 14px;background:rgba(12,12,12,0.72);backdrop-filter:blur(10px);z-index:2000;border-bottom:1px solid rgba(255,255,255,0.04);
+  display:flex;align-items:center;gap:10px;
+}
+.logo{height:34px}
+.brand{font-weight:800;font-size:1rem}
+
+/* SEARCH */
+.mobile-search{margin-top:60px;padding:12px 15px;}
+.mobile-search input{
+  width:100%;padding:12px 18px;border-radius:30px;
+  border:none;background:rgba(255,255,255,0.15);
+  color:#fff;outline:none;font-size:1rem;
+}
+
+/* Suggestions dropdown */
+#suggestionsBox{
+  position:absolute;
+  top:60px;
+  left:50%;
+  transform:translateX(-50%);
+  width:94%;
+  max-width:920px;
+  background:rgba(0,0,0,0.94);
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.06);
+  backdrop-filter:blur(10px);
+  display:none;
+  max-height:520px;
+  overflow:auto;
+  z-index:9999;
+  padding:6px 0;
+}
+.suggestion-item{
+  display:flex;gap:12px;align-items:center;padding:12px;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;
+}
+.suggestion-item:hover{background:rgba(255,255,255,0.03)}
+.suggestion-item img{width:86px;height:86px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.suggestion-content{flex:1;display:flex;flex-direction:column;justify-content:center}
+.suggestion-title{font-weight:800;margin-bottom:6px}
+.suggestion-price{opacity:0.95;margin-bottom:8px}
+.suggestion .buy-btn{background:var(--accent);color:#111;padding:8px 12px;border-radius:18px;font-weight:800;text-decoration:none;display:inline-block}
+
+/* Tiny hero */
+.hero{text-align:center;padding:12px 10px}
+.hero h1{font-size:1.45rem;font-weight:900;margin-bottom:6px}
+.hero p.sub{opacity:0.9;margin-bottom:8px;font-size:0.95rem}
+
+/* Chips */
+.chip-row{display:flex;gap:8px;padding:8px 12px;overflow-x:auto}
+.chip{padding:8px 12px;border-radius:20px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.04);font-size:0.9rem;white-space:nowrap;cursor:pointer}
+
+/* Carousels & cards */
+#dynamicCarousels{padding-bottom:48px}
+.carousel-section{padding:16px 0}
+.carousel-section h2{padding-left:14px;font-size:1.15rem;font-weight:800;margin-bottom:8px}
+
+/* Swiper area */
+.swiper{padding-left:14px;padding-bottom:16px}
+.swiper-slide{width:72% !important;flex-shrink:0}
+.card{background:var(--glass);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(6px)}
+.card img{width:100%;height:180px;object-fit:cover;display:block}
+.card-body{padding:10px}
+.card-body h3{font-size:1rem;font-weight:800;margin-bottom:6px}
+.card-body .price{font-weight:900;margin-bottom:8px}
+
+/* buy button inside card */
+.card .buy-btn{display:block;text-align:center;background:#fff;color:#111;padding:10px;border-radius:14px;text-decoration:none;font-weight:800}
+
+/* disclosure & footer */
+.disclosure{text-align:center;opacity:0.78;padding:16px 12px;font-size:0.92rem}
+.footer{text-align:center;opacity:0.78;padding-bottom:22px}
+
+/* responsive tweaks for tablet/desktop */
+@media(min-width:768px){
+  .swiper-slide{width:34% !important}
+  .card img{height:200px}
+  .search-wrap{margin-top:86px}
+}
+/* SEARCH BAR */
+.search-wrap {
+  margin-top: 68px;
+  padding: 12px 16px;
+  position: relative;
+  z-index: 5000; /* ensure it stays above Swiper */
+}
+
+#searchInput {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 32px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* SEARCH SUGGESTION BOX */
+#suggestionsBox {
+  position: absolute;
+  top: 62px;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.92);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  display: none;             /* hidden until something is typed */
+  max-height: 420px;
+  overflow-y: auto;
+  z-index: 99999;             /* above everything */
+  padding: 8px 0;
+}
+
+/* Each suggestion row */
+.suggestion-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.suggestion-item img {
+  width: 78px;
+  height: 78px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.suggestion-content {
+  flex: 1;
+}
+
+.suggestion-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.suggestion-price {
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.suggestion-content .buy-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #fff;
+  color: #000;
+  border-radius: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+/* ============================
+   MOBILE SEARCH BAR (FULL-WIDTH)
+============================ */
+
+.mobile-search {
+  margin-top: 72px;              /* below header */
+  padding: 12px 16px;
+  position: relative;            /* anchor for dropdown */
+  z-index: 5000;
+}
+
+.mobile-search input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  user-select: none;
+}
+
+/* ============================
+   FIXED SEARCH SUGGESTION DROPDOWN
+   (This one is correct — USE ONLY THIS)
+============================ */
+
+#suggestionsBox {
+  position: fixed;                     /* FIX: stays inside viewport */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 94%;
+  max-width: 500px;
+  background: rgba(10, 10, 10, 0.95);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  display: none;                       /* shown by JS */
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 6px 0;
+  z-index: 99999;                      /* above everything */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Scrollbar styling */
+#suggestionsBox::-webkit-scrollbar {
+  width: 6px;
+}
+#suggestionsBox::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+}
+
+/* ============================
+   SUGGESTION ITEM
+============================ */
+
+.suggestion-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.suggestion-item img {
+  width: 78px;
+  height: 78px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.suggestion-content {
+  flex: 1;
+}
+
+.suggestion-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.suggestion-price {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.suggestion-content .buy-btn {
+  display: inline-block;
+  background: #fff;
+  color: #111;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+/* ============================
+   RESPONSIVE TWEAKS
+============================ */
+
+@media (max-width: 480px) {
+  .suggestion-item img {
+    width: 70px;
+    height: 70px;
+  }
+  .suggestion-title {
+    font-size: 0.9rem;
+  }
+}

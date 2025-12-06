@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>BuySahi Blog – Curated Product Guides</title>
+  <meta name="description" content="BuySahi Blog – curated Amazon product guides, recommendations, and problem-solving finds for Indian homes.">
+
+  <!-- Load blog.css -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="post-topbar">
+    <a href="/" class="logo-link">
+      <img src="https://github.com/buysahi/buysahi.github.io/raw/main/Black_and_White_Modern_Streetwear_Sport_Logo__1_-removebg-preview-2.png" class="top-logo" alt="BuySahi Logo">
+    </a>
+
+    <nav class="top-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/categories/">Categories</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- BLOG HEADER -->
+  <section class="container" style="margin-top:28px;">
+    <h1 style="font-size:1.9rem;font-weight:800;margin-bottom:6px;">BuySahi Blog</h1>
+    <p class="lead">Short, useful, problem-solving product guides for Indian homes.</p>
+  </section>
+
+  <!-- SEARCH BAR -->
+  <div class="container" style="margin-top:20px;">
+    <input 
+      type="text" 
+      id="blogSearch" 
+      placeholder="Search blogs…" 
+      style="
+        width:100%;
+        padding:12px 16px;
+        border-radius:14px;
+        border:1px solid rgba(0,0,0,0.15);
+        font-size:1rem;
+      "
+      oninput="filterBlogs()"
+    >
+  </div>
+
+  <!-- CATEGORY CHIPS -->
+  <div class="chip-row container" style="margin-top:16px;">
+    <button class="chip active" data-cat="all" onclick="filterByCategory('all')">All</button>
+    <button class="chip" data-cat="kitchen" onclick="filterByCategory('kitchen')">Kitchen</button>
+    <button class="chip" data-cat="home" onclick="filterByCategory('home')">Home</button>
+    <button class="chip" data-cat="organisers" onclick="filterByCategory('organisers')">Organisers</button>
+    <button class="chip" data-cat="gadgets" onclick="filterByCategory('gadgets')">Gadgets</button>
+    <button class="chip" data-cat="trending" onclick="filterByCategory('trending')">Trending</button>
+  </div>
+
+  <!-- BLOG GRID -->
+  <section class="post-grid container" id="blogList" style="margin-top:20px;">
+    <!-- Blog cards injected by JS -->
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner container">
+
+      <div class="footer-brand">
+        <img src="https://github.com/buysahi/buysahi.github.io/raw/main/Black_and_White_Modern_Streetwear_Sport_Logo__1_-removebg-preview-2.png" class="footer-logo">
+        <p>Daily curated Amazon finds.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/categories/">Categories</a>
+        <a href="/about.html">About Us</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms & Conditions</a>
+        <a href="/refund.html">Refund Policy</a>
+      </div>
+
+    </div>
+
+    <p class="footer-copy">
+      © <span id="year"></span> BuySahi · As an Amazon Associate, we earn from qualifying purchases.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JS FOR BLOG LIST -->
+  <script>
+    let ALL_BLOGS = [];
+
+    async function loadBlogs() {
+      const res = await fetch("/blog/posts.json");
+      ALL_BLOGS = await res.json();
+      renderBlogs(ALL_BLOGS);
+    }
+
+    function renderBlogs(list) {
+      const container = document.getElementById("blogList");
+      container.innerHTML = "";
+
+      list.forEach(b => {
+        const card = document.createElement("a");
+        card.className = "post-card";
+        card.href = b.url;
+
+        card.innerHTML = `
+          <img src="${b.image}" alt="${b.title}">
+          <div class="meta">
+            <div class="meta-row">
+              <span>${b.date}</span>
+              <span>${b.categories.join(", ")}</span>
+            </div>
+            <span class="title">${b.title}</span>
+            <p class="excerpt">${b.excerpt}</p>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function filterBlogs() {
+      const q = document.getElementById("blogSearch").value.toLowerCase();
+      const filtered = ALL_BLOGS.filter(b =>
+        b.title.toLowerCase().includes(q) ||
+        b.excerpt.toLowerCase().includes(q)
+      );
+      renderBlogs(filtered);
+    }
+
+    function filterByCategory(cat) {
+      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      document.querySelector(`.chip[data-cat="${cat}"]`).classList.add("active");
+
+      if (cat === "all") return renderBlogs(ALL_BLOGS);
+
+      const filtered = ALL_BLOGS.filter(b =>
+        b.categories.map(c => c.toLowerCase()).includes(cat)
+      );
+
+      renderBlogs(filtered);
+    }
+
+    loadBlogs();
+  </script>
+
+</body>
+</html>

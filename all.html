@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>All Products – BuySahi</title>
+  <meta name="description" content="Browse all curated Amazon products with filters.">
+
+  <link rel="stylesheet" href="all.css">
+   
+  <!-- 🎬 Background Video -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://v1.pinimg.com/videos/iht/expMp4/b8/ce/bd/b8cebd36cc32a9897a2306d2e8e2ed1d_720w.mp4" type="video/mp4">
+  </video>
+  
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="all-header">
+    <a href="index.html" class="back-btn">←</a>
+    <h2>All Products</h2>
+  </header>
+
+  <!-- Search -->
+  <div class="all-search">
+    <input id="allSearchInput" type="text" placeholder="Search products or code..." autocomplete="off">
+  </div>
+
+  <!-- Filter Chips -->
+  <div class="filter-chips" id="filterChips">
+    <button class="chip active" data-category="all">All</button>
+  </div>
+
+  <!-- Product Grid -->
+  <div id="allProductsGrid" class="product-grid"></div>
+
+  <!-- JS -->
+  <script src="all.js"></script>
+</body>
+</html>

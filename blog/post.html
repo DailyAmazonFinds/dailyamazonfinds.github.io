@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <!-- 🔥 Replace these for each post -->
+  <title>{{POST_TITLE}} – BuySahi</title>
+  <meta name="description" content="{{META_DESCRIPTION}}"/>
+  <link rel="canonical" href="https://yourdomain.com/blog/{{POST_SLUG}}.html"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/blog.css"/>
+  <link rel="stylesheet" href="/assets/css/product-cards.css"/>
+</head>
+
+<body>
+
+  <!-- subtle BG -->
+  <div class="blog-page-bg"></div>
+
+  <!-- ⭐ HEADER WITH LOGO -->
+  <header class="post-topbar">
+    <a href="/" class="logo-link">
+      <img src="/assets/logo/buysahi-white.png" class="top-logo" alt="BuySahi Logo">
+    </a>
+
+    <nav class="top-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/categories/">Categories</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </header>
+
+
+  <!-- 🏆 BLOG HERO -->
+  <header class="post-hero container">
+
+    <div class="post-hero-main">
+      <p class="badge">Curated Picks</p>
+
+      <h1>{{POST_TITLE}}</h1>
+
+      <p class="sub">{{POST_SUBTITLE}}</p>
+
+      <div class="meta-row">
+        <div>
+          <span class="label">Updated</span>
+          <time>{{POST_DATE}}</time>
+        </div>
+        <div>
+          <span class="label">Category</span>
+          <span>{{POST_CATEGORY}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-hero-side">
+      <p class="hero-note">
+        BuySahi only recommends genuinely useful Amazon products with high ratings and real benefits.
+      </p>
+      <ul class="hero-bullets">
+        <li>Handpicked & useful</li>
+        <li>Perfect for Indian homes</li>
+        <li>Budget-friendly options</li>
+      </ul>
+    </div>
+
+  </header>
+
+
+  <!-- 📄 BLOG CONTENT -->
+  <main class="post-main container">
+
+    <article class="post-article">
+
+      <!-- ✔ Short intro paragraph -->
+      <p class="lead">
+        {{POST_INTRO}}
+      </p>
+
+      <!-- ⭐ PRODUCT BLOCK (copy this for every product) -->
+      <!-- ⭐ Replace H2 and product-copy per product; leave inject-products unchanged -->
+      <section class="product-section">
+
+        <div class="product-heading">
+          <div class="product-rank">#{{PRODUCT_NUMBER}}</div>
+          <div>
+            <h2>{{PRODUCT_TITLE}}</h2>
+            <p class="product-tagline">{{PRODUCT_TAGLINE}}</p>
+          </div>
+        </div>
+
+        <div class="product-layout">
+
+          <!-- Description text -->
+          <div class="product-copy">
+            <p>{{PARAGRAPH_1}}</p>
+            <p>{{PARAGRAPH_2}}</p>
+
+            <ul>
+              <li>{{POINT_1}}</li>
+              <li>{{POINT_2}}</li>
+              <li>{{POINT_3}}</li>
+            </ul>
+          </div>
+
+          <!-- Auto product injection -->
+          <div class="product-box">
+            <div class="inject-products" 
+              data-products="{{CATEGORY_FROM_SHEET}}" 
+              data-code="{{PRODUCT_CODE}}" 
+              data-limit="1"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ⭐ Copy & repeat above PRODUCT SECTION for all products -->
+
+
+      <!-- 📝 EDITOR NOTE -->
+      <section class="editor-note">
+        <h3>Editor's Note</h3>
+        <p>
+          At BuySahi, we only recommend products that are practical, problem-solving, and value for money.
+        </p>
+      </section>
+
+    </article>
+
+  </main>
+
+
+  <!-- ⭐ RECOMMENDED BLOGS -->
+  <section class="more-blogs container">
+    <h2 class="more-title">More Blogs You Might Like</h2>
+
+    <div class="more-blogs-grid">
+
+      <a href="/blog/home-organisers.html" class="more-blog-card">
+        <h3>Best Home Organisers</h3>
+        <p>Easy upgrades for clutter-free living</p>
+      </a>
+
+      <a href="/blog/kitchen-tools.html" class="more-blog-card">
+        <h3>10 Essential Kitchen Tools</h3>
+        <p>Smart, problem-solving picks</p>
+      </a>
+
+      <a href="/blog/trending-gadgets.html" class="more-blog-card">
+        <h3>Trending Amazon Gadgets</h3>
+        <p>Cool finds worth checking out</p>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ⭐ FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-inner container">
+
+      <div class="footer-brand">
+        <img src="/assets/logo/buysahi-white.png" class="footer-logo">
+        <p>Daily curated Amazon finds.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/categories/">Categories</a>
+        <a href="/about.html">About Us</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms & Conditions</a>
+        <a href="/refund.html">Refund Policy</a>
+      </div>
+
+    </div>
+
+    <p class="footer-copy">
+      © <span id="year"></span> BuySahi · As an Amazon Associate, we earn from qualifying purchases.
+    </p>
+
+  </footer>
+
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="/assets/js/blog-product-injector.js"></script>
+
+</body>
+</html>
