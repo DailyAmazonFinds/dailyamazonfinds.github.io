@@ -19,40 +19,28 @@ function escapeHtml(v){
     .replaceAll('"',"&quot;");
 }
 
-async function loadProductsFromSheet() {
-  try {
-    const res = await fetch(SHEET_URL, { cache: "no-store" });
-    const text = await res.text();
+/* Load Sheet Data */
+async function loadAllProducts(){
+  const res = await fetch(SHEET_URL);
+  const text = await res.text();
+  const json = JSON.parse(text.substring(47).slice(0,-2));
+  const rows = json.table?.rows || [];
 
-    // Strip GViz wrapper: google.visualization.Query.setResponse(...)
-    const json = JSON.parse(text.substring(47).slice(0, -2));
-    const rows = json.table?.rows || [];
+  ALL_PRODUCTS = rows.map(r => {
+    const c = r.c || [];
+    return {
+      title: c[0]?.v || "",
+      price: c[1]?.v || "",
+      image: c[2]?.v || "",
+      link: c[3]?.v || "",
+      code:  c[4]?.v || "",
+      desc:  c[5]?.v || "",
+      category: (c[6]?.v || "other").toLowerCase()
+    };
+  });
 
-    // Sheet2: Product Name | Price | ImageURL | Code | Category
-    ALL_PRODUCTS = rows.map((r) => {
-      const c = r.c || [];
-      const rawCat = c[4]?.v || "trending";
-
-      return {
-        title: c[0]?.v || "",
-        price: c[1]?.v || "",
-        image: c[2]?.v || "",
-        // No ProductLink column in Sheet2 — keep placeholder for now
-        link: "#",
-        code: (c[3]?.v || "").toString(),
-        desc: "", // no description column in Sheet2
-        category: safeCategory(rawCat)
-      };
-    });
-
-    CATEGORIES = groupByCategory(ALL_PRODUCTS);
-    buildCarousels();
-
-    lastLoadedAt = Date.now();
-  } catch (err) {
-    console.error("❌ Failed to load sheet:", err);
-    showStatus("Sheet fetch failed. Check sharing & sheet name.", true);
-  }
+  buildCategoryChips();
+  renderGrid(ALL_PRODUCTS);
 }
 
 /* Build Filter Chips */
