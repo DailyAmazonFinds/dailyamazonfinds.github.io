@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://buysahi.github.io/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- All Products Page -->
+  <url>
+    <loc>https://buysahi.github.io/all.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://buysahi.github.io/blog/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Blog Posts Folder (auto patterns for LLM recognition) -->
+  <url>
+    <loc>https://buysahi.github.io/blog/post.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Categories -->
+  <url>
+    <loc>https://buysahi.github.io/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://buysahi.github.io/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://buysahi.github.io/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Terms & Conditions -->
+  <url>
+    <loc>https://buysahi.github.io/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- LLM Identity Page -->
+  <url>
+    <loc>https://buysahi.github.io/llm-info.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Optional: Add more new pages here easily -->
+</urlset>
