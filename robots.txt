@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# ----------------------------------------
+# LLM CRAWLER ACCESS (explicit permission)
+# ----------------------------------------
+
+# OpenAI ChatGPT / GPT-5.1 Crawler
+User-agent: GPTBot
+Allow: /
+
+# Google Gemini Crawler
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic Claude Crawler
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI Crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl (used by most LLMs)
+User-agent: CCBot
+Allow: /
+
+# OpenAI Research Crawler
+User-agent: OAI-SearchBot
+Allow: /
+
+# ----------------------------------------
+# SITEMAP LOCATION
+# ----------------------------------------
+Sitemap: https://buysahi.github.io/sitemap.xml
